@@ -1,5 +1,6 @@
-class ArticlesController < ApplicationController
+# frozen_string_literal: true
 
+class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
@@ -8,13 +9,12 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-
   def new
-  	@article = Article.new
+    @article = Article.new
   end
 
   def create
-    @article = Article.new(title: "...", body: "...")
+    @article = Article.new(title: '...', body: '...')
 
     if @article.save
       redirect_to @article
@@ -22,5 +22,4 @@ class ArticlesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
 end
